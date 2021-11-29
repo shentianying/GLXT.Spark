@@ -91,7 +91,6 @@ namespace GLXT.Spark.Entity
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseLoggerFactory(LoggerFactory);
             //optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=SGL;User ID=sa;Password=1");
-            //optionsBuilder.UseSqlServer("Data Source=172.10.11.33;Initial Catalog=Spark;User ID=xuefei;Password=b4ktfQszOnrI9eON");
             //}
         }
 

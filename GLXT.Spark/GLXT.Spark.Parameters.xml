@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="http://120.48.17.144/Spark/Api" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\MyRepos\\Spark\\GLXT\.Spark\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
