@@ -1,7 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>43301490-9a49-4a07-b55d-049e14c2032a</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -36,6 +37,8 @@
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.14" />
     <PackageReference Include="ZKWeb.System.Drawing" Version="4.0.1" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 
 </Project>
