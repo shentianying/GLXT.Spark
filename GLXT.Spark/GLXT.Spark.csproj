@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Entity\" />
+    <Folder Include="Entity\HDGL\" />
+    <Folder Include="Entity\RZGL\" />
     <Folder Include="Enums\" />
     <Folder Include="Model\" />
     <Folder Include="Service\" />

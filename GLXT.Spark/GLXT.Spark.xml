@@ -882,6 +882,11 @@
             <param name="newPassWord">新密码</param>
             <returns></returns>
         </member>
+        <member name="T:GLXT.Spark.Controllers.ZSGL.BussinessInformationController">
+            <summary>
+            招商资讯管理
+            </summary>
+        </member>
         <member name="T:GLXT.Spark.Entity.BaseCheckup">
             <summary>
             包含审批流
@@ -958,6 +963,86 @@
             </summary>
             <param name="entry"></param>
             <param name="tableName"></param>
+        </member>
+        <member name="T:GLXT.Spark.Entity.JKGL.Monitor">
+            <summary>
+            企业信息
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.PId">
+            <summary>
+            int：上级
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.Name">
+            <summary>
+            string：监控名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.IPAddress">
+            <summary>
+            string：监控IP地址
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.LoginName">
+            <summary>
+            string：登录账号
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.LoginPassword">
+            <summary>
+            string：登录密码
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.Remark">
+            <summary>
+            string：备注
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.IsMonitor">
+            <summary>
+            string：是否是监控
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.QYGL.EnterpriseInformation">
+            <summary>
+            企业信息
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.InformationType">
+            <summary>
+            int：资讯类型
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.Title">
+            <summary>
+            string：资讯标题
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.Content">
+            <summary>
+            string：资讯内容
+            </summary>
         </member>
         <member name="T:GLXT.Spark.Entity.RSGL.Person">
             <summary>
@@ -2407,6 +2492,36 @@
         <member name="P:GLXT.Spark.Entity.XTGL.UserRole.Person">
             <summary>
             导航属性
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.ZSGL.BussinessInformation">
+            <summary>
+            招商资讯
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.BussinessInformation.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.BussinessInformation.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.BussinessInformation.InformationType">
+            <summary>
+            int：资讯类型
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.BussinessInformation.Title">
+            <summary>
+            string：资讯标题
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.BussinessInformation.Content">
+            <summary>
+            string：资讯内容
             </summary>
         </member>
         <member name="T:GLXT.Spark.Enums.AttitudeEnum">
