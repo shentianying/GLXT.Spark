@@ -4,6 +4,39 @@
         <name>GLXT.Spark</name>
     </assembly>
     <members>
+        <member name="T:GLXT.Spark.Controllers.GGGL.AdvertisementController">
+            <summary>
+            广告管理
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.GGGL.AdvertisementController.GetAdvertisementPaging">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.HDGL.AcitivityController">
+            <summary>
+            商场活动
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.AcitivityController.GetAcitivityPaging">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.HDGL.MatchController">
+            <summary>
+            赛事安排
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.MatchController.GetBussinessInformationPaging">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GLXT.Spark.Controllers.HomeController">
             <summary>
             信息提示
@@ -55,6 +88,115 @@
             <summary>
             gif数字字母组合验证码
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.JKGL.MonitorController">
+            <summary>
+            监控管理
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.GetMonitorPaging(GLXT.Spark.ViewModel.JKGL.MonitorSearchViewModel)">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.GetMonitorList">
+            <summary>
+            监控列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.getAllMonitorNode">
+            <summary>
+            监控节点列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.GetMonitorById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取监控信息
+            </summary>
+            <param name="id">监控id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.AddMonitor(GLXT.Spark.Entity.JKGL.Monitor)">
+            <summary>
+            添加监控
+            </summary>
+            <param name="Monitor">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.PutMonitor(GLXT.Spark.Entity.JKGL.Monitor)">
+            <summary>
+            更新
+            </summary>
+            <param name="Monitor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.DeleteMonitor(System.Nullable{System.Int32})">
+            <summary>
+            作废
+            </summary>
+            <param name="id">监控id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.AddMonitorNode(GLXT.Spark.Entity.JKGL.Monitor)">
+            <summary>
+            添加监控节点
+            </summary>
+            <param name="Monitor">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.JKGL.MonitorController.PutMonitorNode(GLXT.Spark.Entity.JKGL.Monitor)">
+            <summary>
+            更新节点
+            </summary>
+            <param name="Monitor"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.QYGL.ResourcesController">
+            <summary>
+            房产资源管理
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.QYGL.VisitorController">
+            <summary>
+            访客管理
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.QYGL.VisitorController.GetVisitorPaging(GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel)">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.QYGL.VisitorController.GetVisitorById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取意向企业信息
+            </summary>
+            <param name="id">意向企业id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.QYGL.VisitorController.AddVisitor(GLXT.Spark.Entity.QYGL.Visitor)">
+            <summary>
+            添加意向企业
+            </summary>
+            <param name="visitor">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.QYGL.VisitorController.PutVisitor(GLXT.Spark.Entity.QYGL.Visitor)">
+            <summary>
+            更新
+            </summary>
+            <param name="visitor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.QYGL.VisitorController.DeleteVisitor(System.Nullable{System.Int32})">
+            <summary>
+            作废
+            </summary>
+            <param name="id">意向企业id</param>
             <returns></returns>
         </member>
         <member name="T:GLXT.Spark.Controllers.RSGL.PersonController">
@@ -304,6 +446,17 @@
             根据组织机构id获取岗位列表
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.WYGL.PropertyController">
+            <summary>
+            物业管理
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.WYGL.PropertyController.GetPropertyPaging">
+            <summary>
+            获取分页列表
+            </summary>
             <returns></returns>
         </member>
         <member name="T:GLXT.Spark.Controllers.XTGL.AccountSetController">
@@ -887,6 +1040,97 @@
             招商资讯管理
             </summary>
         </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.BussinessInformationController.GetBussinessInformationPaging">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.ZSGL.ContractController">
+            <summary>
+            合同签订
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.ContractController.GetContractPaging(GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel)">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.ContractController.GetContractById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取意向企业信息
+            </summary>
+            <param name="id">意向企业id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.ContractController.AddContract(GLXT.Spark.Entity.ZSGL.Contract)">
+            <summary>
+            添加意向企业
+            </summary>
+            <param name="contract">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.ContractController.PutContract(GLXT.Spark.Entity.ZSGL.Contract)">
+            <summary>
+            更新
+            </summary>
+            <param name="contract"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GLXT.Spark.Controllers.ZSGL.EnterpriseController">
+            <summary>
+            意向企业
+            </summary>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.GetEnterprisePaging(GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel)">
+            <summary>
+            获取分页列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.GetEnterpriseList(System.Nullable{System.Int32},System.String)">
+            <summary>
+            意向企业列表
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.InitEnterprise">
+            <summary>
+            初始化编辑页面
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.GetEnterpriseById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取意向企业信息
+            </summary>
+            <param name="id">意向企业id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.AddEnterprise(GLXT.Spark.Entity.ZSGL.Enterprise)">
+            <summary>
+            添加意向企业
+            </summary>
+            <param name="enterprise">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.PutEnterprise(GLXT.Spark.Entity.ZSGL.Enterprise)">
+            <summary>
+            更新
+            </summary>
+            <param name="enterprise"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.ZSGL.EnterpriseController.DeleteEnterprise(System.Nullable{System.Int32})">
+            <summary>
+            作废
+            </summary>
+            <param name="id">意向企业id</param>
+            <returns></returns>
+        </member>
         <member name="T:GLXT.Spark.Entity.BaseCheckup">
             <summary>
             包含审批流
@@ -964,9 +1208,54 @@
             <param name="entry"></param>
             <param name="tableName"></param>
         </member>
+        <member name="T:GLXT.Spark.Entity.GGGL.Advertisement">
+            <summary>
+            广告管理
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.HDGL.Acitivity">
+            <summary>
+            商场活动
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.HDGL.Match">
+            <summary>
+            赛事安排
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
         <member name="T:GLXT.Spark.Entity.JKGL.Monitor">
             <summary>
-            企业信息
+            监控信息
             </summary>
         </member>
         <member name="P:GLXT.Spark.Entity.JKGL.Monitor.Id">
@@ -982,6 +1271,11 @@
         <member name="P:GLXT.Spark.Entity.JKGL.Monitor.PId">
             <summary>
             int：上级
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.Number">
+            <summary>
+            string：编号
             </summary>
         </member>
         <member name="P:GLXT.Spark.Entity.JKGL.Monitor.Name">
@@ -1011,37 +1305,172 @@
         </member>
         <member name="P:GLXT.Spark.Entity.JKGL.Monitor.IsMonitor">
             <summary>
-            string：是否是监控
+            bool：是否是监控
             </summary>
         </member>
-        <member name="T:GLXT.Spark.Entity.QYGL.EnterpriseInformation">
+        <member name="P:GLXT.Spark.Entity.JKGL.Monitor.InUse">
+            <summary>
+            bool：是否使用
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.QYGL.CompanyInfo">
             <summary>
             企业信息
             </summary>
         </member>
-        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.Id">
+        <member name="P:GLXT.Spark.Entity.QYGL.CompanyInfo.Id">
             <summary>
             int:主键ID
             </summary>
         </member>
-        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.CompanyId">
+        <member name="P:GLXT.Spark.Entity.QYGL.CompanyInfo.CompanyId">
             <summary>
             公司Id
             </summary>
         </member>
-        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.InformationType">
+        <member name="P:GLXT.Spark.Entity.QYGL.CompanyInfo.InformationType">
             <summary>
             int：资讯类型
             </summary>
         </member>
-        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.Title">
+        <member name="P:GLXT.Spark.Entity.QYGL.CompanyInfo.Title">
             <summary>
             string：资讯标题
             </summary>
         </member>
-        <member name="P:GLXT.Spark.Entity.QYGL.EnterpriseInformation.Content">
+        <member name="P:GLXT.Spark.Entity.QYGL.CompanyInfo.Content">
             <summary>
             string：资讯内容
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.QYGL.Resources">
+            <summary>
+            房产资源
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.PId">
+            <summary>
+            上级
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.ShortName">
+            <summary>
+            缩写
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.Sort">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.Optional">
+            <summary>
+            是否可选择（1、可选择；2、不可选择）
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.InUse">
+            <summary>
+            是否可用（1、可用；0、禁用）
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Resources.IsRent">
+            <summary>
+            是否出租
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.QYGL.Visitor">
+            <summary>
+            访客信息
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.Telphone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.OrderTime">
+            <summary>
+            预约时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.OrderSuccessTime">
+            <summary>
+            预约成功时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.VisitTime">
+            <summary>
+            到访时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.LeaveTime">
+            <summary>
+            离开时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.OrgId">
+            <summary>
+            拜访部门
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.RegionId">
+            <summary>
+            拜访区域
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.ReceivePerson">
+            <summary>
+            接待人
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.ReceiveTel">
+            <summary>
+            接待人联系方式
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.CarNum">
+            <summary>
+            车牌
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.VisitReason">
+            <summary>
+            拜访原因
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.QYGL.Visitor.PeerNum">
+            <summary>
+            同行人数
             </summary>
         </member>
         <member name="T:GLXT.Spark.Entity.RSGL.Person">
@@ -1384,6 +1813,21 @@
         <member name="P:GLXT.Spark.Entity.RSGL.PostPoolDetail.InUse">
             <summary>
             bool:是否使用
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.WYGL.Property">
+            <summary>
+            物业管理
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.WYGL.Property.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.WYGL.Property.CompanyId">
+            <summary>
+            公司Id
             </summary>
         </member>
         <member name="T:GLXT.Spark.Entity.XTGL.AccountSet">
@@ -2522,6 +2966,211 @@
         <member name="P:GLXT.Spark.Entity.ZSGL.BussinessInformation.Content">
             <summary>
             string：资讯内容
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.ZSGL.Contract">
+            <summary>
+            合同签订
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.Number">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.EnterpriseId">
+            <summary>
+            签订公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.RegionId">
+            <summary>
+            签订区域Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.StartDate">
+            <summary>
+            合同开始时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.EndDate">
+            <summary>
+            合同结束时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.IsForever">
+            <summary>
+            bool：是否永久合同
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.Enterprise">
+            <summary>
+            导航属性
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Contract.UpFile">
+            <summary>
+            附件列表
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.Entity.ZSGL.Enterprise">
+            <summary>
+            意向企业
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Id">
+            <summary>
+            int:主键ID
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.CompanyId">
+            <summary>
+            公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.LegalPerson">
+            <summary>
+            法定代表人
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.EmployeeNum">
+            <summary>
+            从业人数
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Output">
+            <summary>
+            企业产值
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Tax">
+            <summary>
+            税收
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.LinkMan">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.LinkTel">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.OfficialNet">
+            <summary>
+            官网
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Area">
+            <summary>
+            建筑面积
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.FormerName">
+            <summary>
+            曾用名
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.OperationState">
+            <summary>
+            经营状态
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.RegCapital">
+            <summary>
+            注册资本
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.PaidCapital">
+            <summary>
+            实缴资本
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Occupation">
+            <summary>
+            所属行业
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.UniSocialCreditCode">
+            <summary>
+            统一社会信用代码
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.TaxNum">
+            <summary>
+            纳税人识别号
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.BusinessLicense">
+            <summary>
+            工商注册号
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.OrgCode">
+            <summary>
+            组织机构代码
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.SetDate">
+            <summary>
+            成立日期
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.StartDate">
+            <summary>
+            营业期限起
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.EndDate">
+            <summary>
+            营业期限止
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.EnterpriseType">
+            <summary>
+            企业类型
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.CheckDate">
+            <summary>
+            核准日期
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.Remark">
+            <summary>
+            string：备注
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.ZSGL.Enterprise.InUse">
+            <summary>
+            bool：是否使用
             </summary>
         </member>
         <member name="T:GLXT.Spark.Enums.AttitudeEnum">
@@ -3769,6 +4418,76 @@
             <typeparam name="TEnum"></typeparam>
             <returns></returns>
         </member>
+        <member name="T:GLXT.Spark.ViewModel.JKGL.MonitorSearchViewModel">
+            <summary>
+            监控搜索项
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.JKGL.MonitorSearchViewModel.currentPage">
+            <summary>
+            当前页面
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.JKGL.MonitorSearchViewModel.pageSize">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.JKGL.MonitorSearchViewModel.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.JKGL.MonitorSearchViewModel.ipAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel">
+            <summary>
+            访客搜索项
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.currentPage">
+            <summary>
+            当前页面
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.pageSize">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.tel">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.carNum">
+            <summary>
+            车牌
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.receivor">
+            <summary>
+            接待人
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.date1">
+            <summary>
+            进入时间起
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.QYGL.VisitorSearchViewModel.date2">
+            <summary>
+            接待人
+            </summary>
+        </member>
         <member name="P:GLXT.Spark.ViewModel.RSGL.OrganizationSearchViewModel.orgIds">
             <summary>
             部门组
@@ -4037,6 +4756,76 @@
         <member name="P:GLXT.Spark.ViewModel.XTGL.CheckViewModel.attitude">
             <summary>
             审批信息
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel">
+            <summary>
+            合同搜索项
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel.currentPage">
+            <summary>
+            当前页面
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel.pageSize">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel.isForever">
+            <summary>
+            是否永久
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel.date1">
+            <summary>
+            日期起
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.ContractSearchViewModel.date2">
+            <summary>
+            日期止
+            </summary>
+        </member>
+        <member name="T:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel">
+            <summary>
+            意向企业搜索项
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel.currentPage">
+            <summary>
+            当前页面
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel.pageSize">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel.operationStates">
+            <summary>
+            经营状态
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel.amount1">
+            <summary>
+            注册资本起
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.ViewModel.ZSGL.EnterpriseSearchViewModel.amount2">
+            <summary>
+            注册资本止
             </summary>
         </member>
     </members>

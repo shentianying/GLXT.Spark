@@ -1,5 +1,5 @@
 ﻿using GLXT.Spark.Entity;
-using GLXT.Spark.Entity.ZSGL;
+using GLXT.Spark.Entity.WYGL;
 using GLXT.Spark.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,20 +9,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GLXT.Spark.Controllers.ZSGL
+namespace GLXT.Spark.Controllers.WYGL
 {
     /// <summary>
-    /// 招商资讯管理
+    /// 物业管理
     /// </summary>
-    [Route("api/ZSGL/[controller]")]
+    [Route("api/WYGL/[controller]")]
     [ApiController]
     [Authorize]
-    public class BussinessInformationController : BaseController
+    public class PropertyController : BaseController
     {
         private readonly DBContext _dbContext;
         private readonly ICommonService _commonService;
         private readonly ISystemService _systemService;
-        public BussinessInformationController(DBContext dbContext, ICommonService commonService, ISystemService systemService)
+        public PropertyController(DBContext dbContext, ICommonService commonService, ISystemService systemService)
         {
             _dbContext = dbContext;
             _commonService = commonService;
@@ -33,11 +33,11 @@ namespace GLXT.Spark.Controllers.ZSGL
         /// 获取分页列表
         /// </summary>
         /// <returns></returns>
-        [HttpPost, Route("GetBussinessInformationPaging")]
-        public IActionResult GetBussinessInformationPaging()
+        [HttpPost, Route("GetPropertyPaging")]
+        public IActionResult GetPropertyPaging()
         {
             int companyId = _systemService.GetCurrentSelectedCompanyId();
-            IQueryable<BussinessInformation> query = _dbContext.BussinessInformation
+            IQueryable<Property> query = _dbContext.Property
                 .Where(w => w.CompanyId.Equals(companyId));
 
             return Ok(new { code = StatusCodes.Status200OK });

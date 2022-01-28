@@ -9,8 +9,8 @@ namespace GLXT.Spark.Entity.QYGL
     /// <summary>
     /// 企业信息
     /// </summary>
-    [Table("qyglEnterpriseInformation")]
-    public class EnterpriseInformation : BaseCreateUser
+    [Table("qyglCompanyInfo")]
+    public class CompanyInfo : BaseCreateUser
     {
         ///<summary>
         ///int:主键ID

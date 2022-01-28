@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GLXT.Spark.Entity.JKGL
 {
     /// <summary>
-    /// 企业信息
+    /// 监控信息
     /// </summary>
     [Table("jkglMonitor")]
     public class Monitor : BaseCreateUser
@@ -26,6 +26,11 @@ namespace GLXT.Spark.Entity.JKGL
         /// int：上级
         /// </summary>
         public int PId { get; set; }
+
+        /// <summary>
+        /// string：编号
+        /// </summary>
+        public string Number { get; set; }
 
         /// <summary>
         /// string：监控名称
@@ -53,8 +58,13 @@ namespace GLXT.Spark.Entity.JKGL
         public string Remark { get; set; }
 
         /// <summary>
-        /// string：是否是监控
+        /// bool：是否是监控
         /// </summary>
         public bool IsMonitor { get; set; }
+
+        /// <summary>
+        /// bool：是否使用
+        /// </summary>
+        public bool InUse { get; set; }
     }
 }

@@ -13,6 +13,12 @@ using System.Threading.Tasks;
 using GLXT.Spark.Entity.RSGL;
 using GLXT.Spark.Entity.XTGL;
 using GLXT.Spark.IService;
+using GLXT.Spark.Entity.JKGL;
+using GLXT.Spark.Entity.ZSGL;
+using GLXT.Spark.Entity.QYGL;
+using GLXT.Spark.Entity.HDGL;
+using GLXT.Spark.Entity.GGGL;
+using GLXT.Spark.Entity.WYGL;
 
 namespace GLXT.Spark.Entity
 {
@@ -80,6 +86,38 @@ namespace GLXT.Spark.Entity
         #endregion
 
         #endregion
+
+        #region ZSGL招商管理
+        public DbSet<BussinessInformation> BussinessInformation { get; set; }
+        public DbSet<Enterprise> Enterprise { get; set; }
+        public DbSet<Contract> Contract { get; set; }
+        #endregion
+
+        #region JKGL监控管理
+        public DbSet<Monitor> Monitor { get; set; }
+        #endregion
+
+        #region QYGL企业管理
+        public DbSet<CompanyInfo> CompanyInfo { get; set; }
+
+        public DbSet<Visitor> Visitor { get; set; }
+
+        public DbSet<Resources> Resources { get; set; }
+        #endregion
+
+        #region HDGL活动管理
+        public DbSet<Acitivity> Acitivity { get; set; }
+        public DbSet<Match> Match { get; set; }
+        #endregion
+
+        #region GGGL广告管理
+        public DbSet<Advertisement> Advertisement { get; set; }
+        #endregion
+
+        #region WYGL广告管理
+        public DbSet<Property> Property { get; set; }
+        #endregion
+
 
 
         public static readonly LoggerFactory LoggerFactory =

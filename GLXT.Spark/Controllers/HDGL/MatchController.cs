@@ -1,5 +1,5 @@
 ﻿using GLXT.Spark.Entity;
-using GLXT.Spark.Entity.ZSGL;
+using GLXT.Spark.Entity.HDGL;
 using GLXT.Spark.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,20 +9,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GLXT.Spark.Controllers.ZSGL
+namespace GLXT.Spark.Controllers.HDGL
 {
     /// <summary>
-    /// 招商资讯管理
+    /// 赛事安排
     /// </summary>
-    [Route("api/ZSGL/[controller]")]
+    [Route("api/HDGL/[controller]")]
     [ApiController]
     [Authorize]
-    public class BussinessInformationController : BaseController
+    public class MatchController : BaseController
     {
         private readonly DBContext _dbContext;
         private readonly ICommonService _commonService;
         private readonly ISystemService _systemService;
-        public BussinessInformationController(DBContext dbContext, ICommonService commonService, ISystemService systemService)
+        public MatchController(DBContext dbContext, ICommonService commonService, ISystemService systemService)
         {
             _dbContext = dbContext;
             _commonService = commonService;
@@ -37,7 +37,7 @@ namespace GLXT.Spark.Controllers.ZSGL
         public IActionResult GetBussinessInformationPaging()
         {
             int companyId = _systemService.GetCurrentSelectedCompanyId();
-            IQueryable<BussinessInformation> query = _dbContext.BussinessInformation
+            IQueryable<Match> query = _dbContext.Match
                 .Where(w => w.CompanyId.Equals(companyId));
 
             return Ok(new { code = StatusCodes.Status200OK });
