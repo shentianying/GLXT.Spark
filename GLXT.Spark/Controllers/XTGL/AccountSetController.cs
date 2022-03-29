@@ -116,6 +116,30 @@ namespace GLXT.Spark.Controllers.XTGL
             
         }
 
+        /// <summary>
+        /// 编辑页面 根据id获取企业信息及统计数据
+        /// </summary>
+        /// <param name="id">企业id</param>
+        /// <returns></returns>
+        [HttpGet, Route("GetAccountSetStaticsById")]
+        //[RequirePermission]
+        public IActionResult GetAccountSetStaticsById(int id)
+        {
+            var info = _dbContext.AccountSet
+                  .FirstOrDefault(w => w.Id.Equals(id));
+
+            if (info == null)
+            {
+                return Ok(new { code = StatusCodes.Status400BadRequest, message = "数据为空" });
+            }
+
+            return Ok(new
+            {
+                code = StatusCodes.Status200OK,
+                data = info
+            });
+        }
+
 
     }
 }

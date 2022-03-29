@@ -129,6 +129,77 @@ namespace GLXT.Spark.Controllers.ZSGL
         }
 
         /// <summary>
+        /// 详情页面 根据id获取意向企业信息
+        /// </summary>
+        /// <param name="id">意向企业id</param>
+        /// <returns></returns>
+        [HttpGet, Route("GetContractDetailById")]
+        //[RequirePermission]
+        public IActionResult GetContractDetailById(int id)
+        {
+            var contract = _dbContext.Contract
+                  .Include(i => i.Enterprise)
+                  .FirstOrDefault(w => w.Id.Equals(id));
+
+            if (contract == null)
+            {
+                return Ok(new { code = StatusCodes.Status400BadRequest, message = "数据为空" });
+            }
+
+            contract.UpFile = _dbContext.UpFile
+                    .Where(w => w.TableId.Equals(id) && w.TableName.Equals(Utils.Common.GetTableName<Contract>()))
+                    .AsNoTracking().ToList();
+
+            var result = new
+            {
+                contract.Id,
+                contract.CompanyId,
+                contract.Number,
+                contract.EnterpriseId,
+                contract.StartDate,
+                contract.EndDate,
+                contract.IsForever,
+                contract.Enterprise.LegalPerson,
+                contract.Enterprise.CompanyName,
+                contract.Enterprise.EmployeeNum,
+                contract.Enterprise.Output,
+                contract.Enterprise.Tax,
+                contract.Enterprise.LinkMan,
+                contract.Enterprise.LinkTel,
+                contract.Enterprise.OfficialNet,
+                contract.Enterprise.Email,
+                contract.Enterprise.Area,
+                contract.Enterprise.Address,
+                contract.Enterprise.FormerName,
+                operationState = _systemService.GetDictionary("OperationState").FirstOrDefault(w => w.Value.Equals(contract.Enterprise.OperationState))?.Name,
+                contract.Enterprise.RegCapital,
+                contract.Enterprise.PaidCapital,
+                contract.Enterprise.Occupation,
+                contract.Enterprise.UniSocialCreditCode,
+                contract.Enterprise.TaxNum,
+                contract.Enterprise.BusinessLicense,
+                contract.Enterprise.OrgCode,
+                contract.Enterprise.SetDate,                
+                enterpriseType = _systemService.GetDictionary("EnterpriseType").FirstOrDefault(w => w.Value.Equals(contract.Enterprise.EnterpriseType))?.Name,
+                contract.Enterprise.CheckDate,
+                contract.Enterprise.Remark,
+                contract.Enterprise.InUse,
+                contract.CreateUserName,
+                contract.CreateDate,
+                contract.LastEditUserName,
+                contract.LastEditDate,
+                contract.UpFile,
+                contract.FileList
+            };
+
+            return Ok(new
+            {
+                code = StatusCodes.Status200OK,
+                data = result
+            });
+        }
+
+        /// <summary>
         /// 添加意向企业
         /// </summary>
         /// <param name="contract">对象</param>

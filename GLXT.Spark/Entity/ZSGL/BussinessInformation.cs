@@ -36,5 +36,10 @@ namespace GLXT.Spark.Entity.ZSGL
         /// string：资讯内容
         /// </summary>
         public string Content { get; set; }
+
+        /// <summary>
+        /// string：链接
+        /// </summary>
+        public string Url { get; set; }
     }
 }

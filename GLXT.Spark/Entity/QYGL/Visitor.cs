@@ -85,6 +85,6 @@ namespace GLXT.Spark.Entity.QYGL
         /// <summary>
         /// 同行人数
         /// </summary>
-        public int PeerNum { get; set; }
+        public int? PeerNum { get; set; }
     }
 }

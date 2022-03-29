@@ -186,6 +186,67 @@ namespace GLXT.Spark.Controllers.ZSGL
         }
 
         /// <summary>
+        /// 详情页面 根据id获取意向企业信息
+        /// </summary>
+        /// <param name="id">意向企业id</param>
+        /// <returns></returns>
+        [HttpGet, Route("GetEnterpriseDetailById")]
+        //[RequirePermission]
+        public IActionResult GetEnterpriseDetailById(int id)
+        {
+            var enterprise = _dbContext.Enterprise
+                  .FirstOrDefault(w => w.Id.Equals(id));
+
+            if (enterprise == null)
+            {
+                return Ok(new { code = StatusCodes.Status400BadRequest, message = "数据为空" });
+            }
+
+            var result = new
+            {
+                enterprise.Id,
+                enterprise.CompanyId,
+                enterprise.LegalPerson,
+                enterprise.CompanyName,
+                enterprise.EmployeeNum,
+                enterprise.Output,
+                enterprise.Tax,
+                enterprise.LinkMan,
+                enterprise.LinkTel,
+                enterprise.OfficialNet,
+                enterprise.Email,
+                enterprise.Area,
+                enterprise.Address,
+                enterprise.FormerName,
+                operationState = _systemService.GetDictionary("OperationState").FirstOrDefault(w => w.Value.Equals(enterprise.OperationState))?.Name,
+                enterprise.RegCapital,
+                enterprise.PaidCapital,
+                enterprise.Occupation,
+                enterprise.UniSocialCreditCode,
+                enterprise.TaxNum,
+                enterprise.BusinessLicense,
+                enterprise.OrgCode,
+                enterprise.SetDate,
+                enterprise.StartDate,
+                enterprise.EndDate,
+                enterpriseType = _systemService.GetDictionary("EnterpriseType").FirstOrDefault(w => w.Value.Equals(enterprise.EnterpriseType))?.Name,
+                enterprise.CheckDate,
+                enterprise.Remark,
+                enterprise.InUse,
+                enterprise.CreateUserName,
+                enterprise.CreateDate,
+                enterprise.LastEditUserName,
+                enterprise.LastEditDate
+            };
+
+            return Ok(new
+            {
+                code = StatusCodes.Status200OK,
+                data = result
+            });
+        }
+
+        /// <summary>
         /// 添加意向企业
         /// </summary>
         /// <param name="enterprise">对象</param>
@@ -284,5 +345,6 @@ namespace GLXT.Spark.Controllers.ZSGL
             else
                 return Ok(new { code = StatusCodes.Status400BadRequest, message = "参数错误" });
         }
+        
     }
 }

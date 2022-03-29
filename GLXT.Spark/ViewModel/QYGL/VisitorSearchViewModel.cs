@@ -45,7 +45,7 @@ namespace GLXT.Spark.ViewModel.QYGL
         public DateTime? date1 { get; set; }
 
         /// <summary>
-        /// 接待人
+        /// 进入时间止
         /// </summary>
         public DateTime? date2 { get; set; }
     }
