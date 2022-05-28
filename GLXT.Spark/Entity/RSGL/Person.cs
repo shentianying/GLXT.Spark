@@ -51,8 +51,7 @@ namespace GLXT.Spark.Entity.RSGL
         /// 证件类型
         /// </summary>
         [Column("IDType")]
-        [StringLength(40)]
-        public string IDType { get; set; }
+        public int? IDType { get; set; }
         /// <summary>
         /// 证件号码
         /// </summary>

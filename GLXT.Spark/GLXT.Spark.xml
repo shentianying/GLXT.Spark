@@ -15,6 +15,34 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GLXT.Spark.Controllers.GGGL.AdvertisementController.GetAdvertisementById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取广告信息
+            </summary>
+            <param name="id">广告id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.GGGL.AdvertisementController.AddAdvertisement(GLXT.Spark.Entity.GGGL.Advertisement)">
+            <summary>
+            添加广告
+            </summary>
+            <param name="advertisement">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.GGGL.AdvertisementController.PutAdvertisement(GLXT.Spark.Entity.GGGL.Advertisement)">
+            <summary>
+            更新
+            </summary>
+            <param name="advertisement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.GGGL.AdvertisementController.DeleteAdvertisement(System.Nullable{System.Int32})">
+            <summary>
+            作废
+            </summary>
+            <param name="id">广告id</param>
+            <returns></returns>
+        </member>
         <member name="T:GLXT.Spark.Controllers.HDGL.AcitivityController">
             <summary>
             商场活动
@@ -26,6 +54,34 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.AcitivityController.GetAcitivityById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取商场活动信息
+            </summary>
+            <param name="id">商场活动id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.AcitivityController.AddAcitivity(GLXT.Spark.Entity.HDGL.Acitivity)">
+            <summary>
+            添加商场活动
+            </summary>
+            <param name="acitivity">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.AcitivityController.PutAcitivity(GLXT.Spark.Entity.HDGL.Acitivity)">
+            <summary>
+            更新
+            </summary>
+            <param name="acitivity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.AcitivityController.DeleteAcitivity(System.Nullable{System.Int32})">
+            <summary>
+            作废
+            </summary>
+            <param name="id">商场活动id</param>
+            <returns></returns>
+        </member>
         <member name="T:GLXT.Spark.Controllers.HDGL.MatchController">
             <summary>
             赛事安排
@@ -35,6 +91,34 @@
             <summary>
             获取分页列表
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.MatchController.GetMatchById(System.Int32)">
+            <summary>
+            编辑页面 根据id获取意向企业信息
+            </summary>
+            <param name="id">意向企业id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.MatchController.AddMatch(GLXT.Spark.Entity.HDGL.Match)">
+            <summary>
+            添加意向企业
+            </summary>
+            <param name="match">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.MatchController.PutMatch(GLXT.Spark.Entity.HDGL.Match)">
+            <summary>
+            更新
+            </summary>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.HDGL.MatchController.DeleteMatch(System.Nullable{System.Int32})">
+            <summary>
+            作废
+            </summary>
+            <param name="id">意向企业id</param>
             <returns></returns>
         </member>
         <member name="T:GLXT.Spark.Controllers.HomeController">
@@ -1244,6 +1328,41 @@
             公司Id
             </summary>
         </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.StartDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.EndDate">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.GGGL.Advertisement.UpFile">
+            <summary>
+            附件列表
+            </summary>
+        </member>
         <member name="T:GLXT.Spark.Entity.HDGL.Acitivity">
             <summary>
             商场活动
@@ -1259,6 +1378,36 @@
             公司Id
             </summary>
         </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.StartDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.EndDate">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Acitivity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:GLXT.Spark.Entity.HDGL.Match">
             <summary>
             赛事安排
@@ -1272,6 +1421,36 @@
         <member name="P:GLXT.Spark.Entity.HDGL.Match.CompanyId">
             <summary>
             公司Id
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.Title">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.StartDate">
+            <summary>
+            开始时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.EndDate">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:GLXT.Spark.Entity.HDGL.Match.Remark">
+            <summary>
+            备注
             </summary>
         </member>
         <member name="T:GLXT.Spark.Entity.JKGL.Monitor">
