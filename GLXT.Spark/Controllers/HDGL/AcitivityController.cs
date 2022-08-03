@@ -1,6 +1,7 @@
 ﻿using GLXT.Spark.Entity;
 using GLXT.Spark.Entity.HDGL;
 using GLXT.Spark.IService;
+using GLXT.Spark.ViewModel.HDGL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,13 +35,81 @@ namespace GLXT.Spark.Controllers.HDGL
         /// </summary>
         /// <returns></returns>
         [HttpPost, Route("GetAcitivityPaging")]
-        public IActionResult GetAcitivityPaging()
+        public IActionResult GetAcitivityPaging(AcitivitySearchViewModel svm)
         {
             int companyId = _systemService.GetCurrentSelectedCompanyId();
             IQueryable<Acitivity> query = _dbContext.Acitivity
                 .Where(w => w.CompanyId.Equals(companyId));
 
-            return Ok(new { code = StatusCodes.Status200OK });
+            if (!string.IsNullOrEmpty(svm.name))
+                query = query.Where(w => w.Title.Contains(svm.name));
+
+            if (svm.types?.Length > 0)
+                query = query.Where(w => svm.types.Contains(w.Type));
+
+            if (svm.currentPage == 0 || svm.pageSize == 0)
+            {
+                return Ok(new { code = StatusCodes.Status400BadRequest, errorMsg = "页码与页数数值需正确！" });
+            }
+            else
+            {
+                int count = query.Count();
+                var query_result = query.Skip((svm.currentPage - 1) * svm.pageSize)
+                    .Take(svm.pageSize);
+                //判断是否有数据，若无则返回第一页
+                if (query_result.Count() == 0)
+                {
+                    svm.currentPage = 1;
+                    query_result = query.Skip((svm.currentPage - 1) * svm.pageSize)
+                        .Take(svm.pageSize);
+                }
+
+                var acitivityTypeList = _systemService.GetDictionary("AcitivityType");//类型
+
+                List<object> result = new List<object>();
+                foreach (var q in query_result)
+                {
+                    result.Add(new
+                    {
+                        q.Id,
+                        q.Title,
+                        typeName = acitivityTypeList.FirstOrDefault(t => t.Value.Equals(q.Type))?.Name,
+                        q.StartDate,
+                        q.EndDate,
+                        q.Content,
+                        q.CreateUserName,
+                        q.CreateDate,
+                        q.LastEditUserName,
+                        q.LastEditDate
+                    });
+                }
+
+                return Ok(new
+                {
+                    code = StatusCodes.Status200OK,
+                    data = result,
+                    count = count,
+                    acitivityTypeList = acitivityTypeList
+                });
+            }
+        }
+
+        /// <summary>
+        /// 初始化编辑页面
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        [HttpGet, Route("InitAcitivity")]
+        //[RequirePermission]
+        public IActionResult InitAcitivity()
+        {
+
+            var acitivityTypeList = _systemService.GetDictionary("AcitivityType");//
+            return Ok(new
+            {
+                code = StatusCodes.Status200OK,
+                acitivityTypeList = acitivityTypeList
+            });
         }
 
         /// <summary>
@@ -82,8 +151,10 @@ namespace GLXT.Spark.Controllers.HDGL
             acitivity.LastEditUserName = GetUserName();
             _dbContext.Add(acitivity);
             if (_dbContext.SaveChanges() > 0)
+            {
+                _systemService.AddFiles<Acitivity>(acitivity.FileList, acitivity.Id);
                 return Ok(new { code = StatusCodes.Status200OK, message = "操作成功", data = acitivity });
-
+            }
             else
                 return Ok(new { code = StatusCodes.Status400BadRequest, message = "添加失败" });
         }
@@ -104,6 +175,7 @@ namespace GLXT.Spark.Controllers.HDGL
                 query1.Title = acitivity.Title;
                 query1.Content = acitivity.Content;
                 query1.Type = acitivity.Type;
+                query1.Location = acitivity.Location;
                 query1.StartDate = acitivity.StartDate;
                 query1.EndDate  = acitivity.EndDate;
                 query1.Remark = acitivity.Remark;
@@ -113,7 +185,10 @@ namespace GLXT.Spark.Controllers.HDGL
 
                 _dbContext.Update(query1);
                 if (_dbContext.SaveChanges() > 0)
+                {
+                    _systemService.UpdateFile<Acitivity>(acitivity.FileList, acitivity.Id);
                     return Ok(new { code = StatusCodes.Status200OK, message = "操作成功", data = acitivity });
+                }
                 else
                     return Ok(new { code = StatusCodes.Status400BadRequest, message = "更新失败" });
             }

@@ -1,6 +1,7 @@
 ﻿using GLXT.Spark.Entity;
 using GLXT.Spark.Entity.GGGL;
 using GLXT.Spark.IService;
+using GLXT.Spark.ViewModel.GGGL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,13 +35,81 @@ namespace GLXT.Spark.Controllers.GGGL
         /// </summary>
         /// <returns></returns>
         [HttpPost, Route("GetAdvertisementPaging")]
-        public IActionResult GetAdvertisementPaging()
+        public IActionResult GetAdvertisementPaging(AdvertisementSearchViewModel svm)
         {
             int companyId = _systemService.GetCurrentSelectedCompanyId();
             IQueryable<Advertisement> query = _dbContext.Advertisement
                 .Where(w => w.CompanyId.Equals(companyId));
 
-            return Ok(new { code = StatusCodes.Status200OK });
+            if (!string.IsNullOrEmpty(svm.name))
+                query = query.Where(w => w.Title.Contains(svm.name));
+
+            if (svm.types?.Length > 0)
+                query = query.Where(w => svm.types.Contains(w.Type));
+
+            if (svm.currentPage == 0 || svm.pageSize == 0)
+            {
+                return Ok(new { code = StatusCodes.Status400BadRequest, errorMsg = "页码与页数数值需正确！" });
+            }
+            else
+            {
+                int count = query.Count();
+                var query_result = query.Skip((svm.currentPage - 1) * svm.pageSize)
+                    .Take(svm.pageSize);
+                //判断是否有数据，若无则返回第一页
+                if (query_result.Count() == 0)
+                {
+                    svm.currentPage = 1;
+                    query_result = query.Skip((svm.currentPage - 1) * svm.pageSize)
+                        .Take(svm.pageSize);
+                }
+
+                var advertisementTypeList = _systemService.GetDictionary("AdvertisementType");//类型
+
+                List<object> result = new List<object>();
+                foreach (var q in query_result)
+                {
+                    result.Add(new
+                    {
+                        q.Id,
+                        q.Title,
+                        typeName = advertisementTypeList.FirstOrDefault(t => t.Value.Equals(q.Type))?.Name,
+                        q.StartDate,
+                        q.EndDate,
+                        q.Content,
+                        q.CreateUserName,
+                        q.CreateDate,
+                        q.LastEditUserName,
+                        q.LastEditDate
+                    });
+                }
+
+                return Ok(new
+                {
+                    code = StatusCodes.Status200OK,
+                    data = result,
+                    count = count,
+                    advertisementTypeList = advertisementTypeList
+                });
+            }
+        }
+
+        /// <summary>
+        /// 初始化编辑页面
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
+        [HttpGet, Route("InitAdvertisement")]
+        //[RequirePermission]
+        public IActionResult InitAdvertisement()
+        {
+           
+            var advertisementTypeList = _systemService.GetDictionary("AdvertisementType");//
+            return Ok(new
+            {
+                code = StatusCodes.Status200OK,
+                advertisementTypeList = advertisementTypeList
+            });
         }
 
         /// <summary>
@@ -82,8 +151,10 @@ namespace GLXT.Spark.Controllers.GGGL
             advertisement.LastEditUserName = GetUserName();
             _dbContext.Add(advertisement);
             if (_dbContext.SaveChanges() > 0)
+            {
+                _systemService.AddFiles<Advertisement>(advertisement.FileList, advertisement.Id);
                 return Ok(new { code = StatusCodes.Status200OK, message = "操作成功", data = advertisement });
-
+            }               
             else
                 return Ok(new { code = StatusCodes.Status400BadRequest, message = "添加失败" });
         }
@@ -103,6 +174,7 @@ namespace GLXT.Spark.Controllers.GGGL
             {
                 query1.Title = advertisement.Title;
                 query1.Content = advertisement.Content;
+                query1.Location = advertisement.Location;
                 query1.Type = advertisement.Type;
                 query1.StartDate = advertisement.StartDate;
                 query1.EndDate = advertisement.EndDate;
@@ -113,7 +185,10 @@ namespace GLXT.Spark.Controllers.GGGL
 
                 _dbContext.Update(query1);
                 if (_dbContext.SaveChanges() > 0)
+                {
+                    _systemService.UpdateFile<Advertisement>(advertisement.FileList, advertisement.Id);
                     return Ok(new { code = StatusCodes.Status200OK, message = "操作成功", data = advertisement });
+                }                    
                 else
                     return Ok(new { code = StatusCodes.Status400BadRequest, message = "更新失败" });
             }

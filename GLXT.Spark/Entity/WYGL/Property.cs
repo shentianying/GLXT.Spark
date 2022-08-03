@@ -21,5 +21,7 @@ namespace GLXT.Spark.Entity.WYGL
         /// 公司Id
         /// </summary>
         public int CompanyId { get; set; }
+
+
     }
 }

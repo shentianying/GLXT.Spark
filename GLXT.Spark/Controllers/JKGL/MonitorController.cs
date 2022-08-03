@@ -264,8 +264,8 @@ namespace GLXT.Spark.Controllers.JKGL
         //[RequirePermission]
         public IActionResult AddMonitorNode(Monitor Monitor)
         {
-            if (_dbContext.Monitor.Where(w => w.IPAddress.Equals(Monitor.IPAddress) && w.Id != Monitor.Id).Count() > 0)
-                return Ok(new { code = StatusCodes.Status400BadRequest, message = "您输入的监控IP地址冲突，请重新设置！" });
+            if (_dbContext.Monitor.Where(w => w.Name.Equals(Monitor.Name) && w.Id != Monitor.Id).Count() > 0)
+                return Ok(new { code = StatusCodes.Status400BadRequest, message = "您输入节点名称重复，请重新设置！" });
             Monitor.CreateUserId = GetUserId();
             Monitor.CreateUserName = GetUserName();
             Monitor.LastEditUserId = GetUserId();
@@ -287,8 +287,8 @@ namespace GLXT.Spark.Controllers.JKGL
         public IActionResult PutMonitorNode(Monitor Monitor)
         {
 
-            if (_dbContext.Monitor.Where(w => w.IPAddress.Equals(Monitor.IPAddress) && w.Id != Monitor.Id).Count() > 0)
-                return Ok(new { code = StatusCodes.Status400BadRequest, message = "您输入的监控IP地址冲突，请重新设置！" });
+            if (_dbContext.Monitor.Where(w => w.Name.Equals(Monitor.Name) && w.Id != Monitor.Id).Count() > 0)
+                return Ok(new { code = StatusCodes.Status400BadRequest, message = "您输入节点名称重复，请重新设置！" });
 
             var query1 = _dbContext.Monitor.Find(Monitor.Id);
 

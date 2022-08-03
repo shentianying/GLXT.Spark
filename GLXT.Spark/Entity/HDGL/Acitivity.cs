@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GLXT.Spark.Entity.XTGL;
+using GLXT.Spark.ViewModel.XTGL.UpFile;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -28,6 +30,11 @@ namespace GLXT.Spark.Entity.HDGL
         public int Type { get; set; }
 
         /// <summary>
+        /// 位置
+        /// </summary>
+        public string Location { get; set; }
+
+        /// <summary>
         /// 主题
         /// </summary>
         public string Title { get; set; }
@@ -51,5 +58,15 @@ namespace GLXT.Spark.Entity.HDGL
         /// 备注
         /// </summary>
         public string Remark { get; set; }
+
+        //和数据库没关系的字段
+        /// <summary>
+        /// 附件列表
+        /// </summary>
+        //附件
+        [NotMapped]
+        public List<UpFile> UpFile { get; set; }
+        [NotMapped]
+        public List<FileList> FileList { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using GLXT.Spark.Entity;
 using GLXT.Spark.IService;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,28 @@ namespace GLXT.Spark.Controllers.QYGL
             _dbContext = dbContext;
             _commonService = commonService;
             _systemService = systemService;
+        }
+
+
+        /// <summary>
+        /// 获取企业信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost, Route("GetResourcesInfo")]
+        public IActionResult GetPropertyPaging()
+        {
+            int companyId = _systemService.GetCurrentSelectedCompanyId();
+
+            //基本信息
+
+
+            //人员数量
+
+            //房产数量
+
+            //车位数量
+
+            return Ok(new { code = StatusCodes.Status200OK });
         }
     }
 }

@@ -30,6 +30,11 @@ namespace GLXT.Spark.Entity.GGGL
         public int Type { get; set; }
 
         /// <summary>
+        /// 位置
+        /// </summary>
+        public string Location { get; set; }
+
+        /// <summary>
         /// 主题
         /// </summary>
         public string Title { get; set; }
