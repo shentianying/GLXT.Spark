@@ -265,9 +265,15 @@
             房产资源管理
             </summary>
         </member>
-        <member name="M:GLXT.Spark.Controllers.QYGL.ResourcesController.GetPropertyPaging">
+        <member name="M:GLXT.Spark.Controllers.QYGL.ResourcesController.GetResourcesInfo">
             <summary>
             获取企业信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GLXT.Spark.Controllers.QYGL.ResourcesController.GetStatisticsInfo">
+            <summary>
+            获取
             </summary>
             <returns></returns>
         </member>

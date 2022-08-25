@@ -1,8 +1,10 @@
 ﻿using GLXT.Spark.Entity;
+using GLXT.Spark.Entity.RSGL;
 using GLXT.Spark.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,26 +30,76 @@ namespace GLXT.Spark.Controllers.QYGL
             _systemService = systemService;
         }
 
-
         /// <summary>
         /// 获取企业信息
         /// </summary>
         /// <returns></returns>
         [HttpPost, Route("GetResourcesInfo")]
-        public IActionResult GetPropertyPaging()
+        public IActionResult GetResourcesInfo()
         {
             int companyId = _systemService.GetCurrentSelectedCompanyId();
 
             //基本信息
-
+            var companyInfo = _dbContext.AccountSet
+                  .FirstOrDefault(w => w.Id.Equals(companyId));
 
             //人员数量
+            int iPeopleCount = _dbContext.Person
+                .Where(w => w.IsUser && w.CompanyId.Equals(companyId)).Count();
+            //访客数量
+            int iVisitorCount = _dbContext.Visitor
+                .Where(w => w.CompanyId.Equals(companyId)).Count();
+            //监控数量
+            int iMoniorCount = _dbContext.Monitor
+                .Where(w => w.CompanyId.Equals(companyId)).Count();
+            //意向已签数量
+            int iEnterpriseCount = _dbContext.Contract
+                .Include(i => i.Enterprise)
+                .Where(w => w.CompanyId.Equals(companyId)).Count();
 
-            //房产数量
+            return Ok(new { 
+                code = StatusCodes.Status200OK, 
+                data = companyInfo,
+                iPeopleCount = iPeopleCount, 
+                iVisitorCount= iVisitorCount,
+                iMoniorCount = iMoniorCount
+            });
+        }
 
-            //车位数量
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost, Route("GetStatisticsInfo")]
+        public IActionResult GetStatisticsInfo()
+        {
+            int companyId = _systemService.GetCurrentSelectedCompanyId();
 
-            return Ok(new { code = StatusCodes.Status200OK });
+            //基本信息
+            var companyInfo = _dbContext.AccountSet
+                  .FirstOrDefault(w => w.Id.Equals(companyId));
+            //人员数量
+            int iPeopleCount = _dbContext.Person
+                .Where(w => w.IsUser && w.CompanyId.Equals(companyId)).Count();
+            //访客数量
+            int iVisitorCount = _dbContext.Visitor
+                .Where(w => w.CompanyId.Equals(companyId)).Count();
+            //监控数量
+            int iMoniorCount = _dbContext.Monitor
+                .Where(w => w.CompanyId.Equals(companyId)).Count();
+            //意向已签数量
+            int iEnterpriseCount = _dbContext.Contract
+                .Include(i => i.Enterprise)
+                .Where(w => w.CompanyId.Equals(companyId)).Count();
+
+            return Ok(new
+            {
+                code = StatusCodes.Status200OK,
+                data = companyInfo,
+                iPeopleCount = iPeopleCount,
+                iVisitorCount = iVisitorCount,
+                iMoniorCount = iMoniorCount
+            });
         }
     }
 }
